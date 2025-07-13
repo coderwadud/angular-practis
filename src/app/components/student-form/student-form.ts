@@ -47,7 +47,7 @@ export class StudentFormComponent {
         ...form.value,
         id: this.idGenerator(), 
         rejected: false,
-        suspended: false,
+        pending: false,
       }
       this.studentLIst.push(data)
       localStorage.setItem('student-list', JSON.stringify(this.studentLIst))
