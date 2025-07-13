@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <div class="card p-4">
+        @if(!studentLIst.length){
+            <h3 class="text-center">Data not Found</h3>
+        }
+            <table class="table table-bordered border-primary">
+                <thead>
+                    <tr>
+                        <th>Sl#</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (student of rejectList(); track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td><img [src]="student.studentPhoto" [alt]="student.studentPhoto" style="height: 40ox;" width="40px"></td>
+                        <td>{{student.full_name}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.phone}}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+    </div>
+</div>

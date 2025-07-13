@@ -1,0 +1,40 @@
+
+  <div class="container my-5">
+    <div class="card p-4">
+    <h2 class="mb-4">Creat Result</h2>
+    <form #resultForm="ngForm" (ngSubmit)="resultSubmit(resultForm)">
+        <div class="row">
+            <div class="col-lg-6 mt-3">
+                <div class="form-group">
+                    <label class="form-label">Select Student</label>
+                    <select class="form-select" name="userId" [(ngModel)]="resultData.userId">
+                        @for (student of goodStudent(); track $index) {
+                        <option [value]="student.id">{{student.full_name}}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-3">
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select class="form-select" name="subject" [(ngModel)]="resultData.subject">
+                        <option value="Bangla">Bangla</option>
+                        <option value="English">English</option>
+                        <option value="ICT">ICT</option>
+                        <option value="Math">Math</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-3">
+                <div class="form-group">
+                    <label class="form-label">Marks</label>
+                    <input type="number" class="form-control" name="marks" [(ngModel)]="resultData.marks">
+                </div>
+            </div>
+            <div class="col-lg-12 mt-3">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>

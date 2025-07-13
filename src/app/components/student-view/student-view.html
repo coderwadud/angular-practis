@@ -1,0 +1,87 @@
+@if(student){
+<div class="container mt-4" >
+  <div class="card shadow rounded-4 border-0">
+    <div class="row g-0">
+      <!-- Left: Student Photo -->
+      <div class="col-md-4 text-center p-4">
+        <img
+          [src]="student.studentPhoto || 'https://via.placeholder.com/150'"
+          alt="Student Photo"
+          class="img-fluid rounded-circle shadow"
+          style="max-width: 150px;"
+        />
+        <p class="mt-3 text-secondary"><strong>ID:</strong> {{ student.id }}</p>
+        @if(studentResults){
+        <p class="mt-3 text-secondary"><strong>Marks:</strong> {{studentResults.marks}}</p>
+        <p class="mt-3 text-secondary"><strong>Subject:</strong> {{studentResults.subject}}</p>
+        } @else {
+          <h3>Result Unpublish</h3>
+        }
+      </div>
+
+      <!-- Right: Student Details -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{ student.full_name }}</h4>
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <strong>Email:</strong>
+              <p class="text-muted mb-0">{{ student.email }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Phone:</strong>
+              <p class="text-muted mb-0">{{ student.phone }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Courses:</strong>
+              <p class="text-muted mb-0">{{ student.courses }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Department:</strong>
+              <p class="text-muted mb-0">{{ student.department }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Date of Birth:</strong>
+              <p class="text-muted mb-0">{{ student.date_of_birth }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Gender:</strong>
+              <p class="text-muted mb-0">{{ student.gender }}</p>
+            </div>
+            <div class="col-12">
+              <strong>Full Address:</strong>
+              <p class="text-muted mb-0">{{ student.full_address }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Terms Accepted:</strong>
+              <span
+                class="badge"
+                [ngClass]="student.terms_and_conditions ? 'bg-success' : 'bg-danger'"
+              >
+                {{ student.terms_and_conditions ? 'Yes' : 'No' }}
+              </span>
+            </div>
+            <div class="col-md-6">
+              <strong>Status:</strong>
+                @if(student.rejected){
+                <span class="badge bg-danger">Rejected</span>
+                }
+                @if(student.pending){
+                <span class="badge bg-warning text-dark">Pending</span>
+                }
+                @if(!student.rejected && !student.pending){
+              <span  class="badge bg-success">Approved</span>
+                }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+<!-- Not found fallback -->
+<ng-template #notFound>
+  <div class="alert alert-danger mt-4">Student not found.</div>
+</ng-template>

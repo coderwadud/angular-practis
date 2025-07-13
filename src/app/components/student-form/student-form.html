@@ -1,0 +1,99 @@
+
+  <div class="container my-5">
+    <div class="card p-4">
+    <h2 class="mb-4">Student Registration Form</h2>
+    <form #createForm="ngForm" (ngSubmit)="studentRegister(createForm)">
+      <div class="row">
+        <!-- Full Name -->
+        <div class="col-md-6 mb-3">
+          <label for="full_name" class="form-label" >Full Name</label>
+          <input type="text" class="form-control" id="full_name" name="full_name" required [(ngModel)]="student.full_name">
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="student.email" required>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="student.phone" required>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="col-md-6 mb-3">
+          <label for="date_of_birth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" [(ngModel)]="student.date_of_birth" required>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label d-block">Gender</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male" [(ngModel)]="student.gender">
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="female" [(ngModel)]="student.gender">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label d-block">Courses</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="html" value="HTML" name="courses" [(ngModel)]="student.courses">
+            <label class="form-check-label" for="html">HTML</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="css" value="CSS" name="courses" [(ngModel)]="student.courses">
+            <label class="form-check-label" for="css">CSS</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="js" value="JavaScript" name="courses" [(ngModel)]="student.courses">
+            <label class="form-check-label" for="js">JavaScript</label>
+          </div>
+        </div>
+
+        <!-- Department -->
+        <div class="col-md-6 mb-3">
+          <label for="department" class="form-label">Department</label>
+          <select class="form-select" id="department" required name="department" [(ngModel)]="student.department" required>
+            <option value="">Select one</option>
+            <option value="CSE">CSE</option>
+            <option value="EEE">EEE</option>
+            <option value="BBA">BBA</option>
+          </select>
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="col-md-6 mb-3">
+          <label for="photo" class="form-label">Upload Photo</label>
+          <input class="form-control" type="text" id="photo" name="studentPhoto" [(ngModel)]="student.studentPhoto">
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-6 mb-3">
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control" id="address" rows="3" name="full_address" [(ngModel)]="student.full_address" required></textarea>
+        </div>
+
+        <!-- Terms -->
+        <div class="col-12 mb-3">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="terms" required  name="terms_and_conditions" [(ngModel)]="student.terms_and_conditions" required>
+            <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
