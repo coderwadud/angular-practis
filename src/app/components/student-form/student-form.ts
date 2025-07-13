@@ -46,7 +46,7 @@ export class StudentFormComponent {
       const data = {
         ...form.value,
         id: this.idGenerator(), 
-        remove_student: false,
+        rejected: false,
         suspended: false,
       }
       this.studentLIst.push(data)
